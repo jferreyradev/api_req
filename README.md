@@ -97,6 +97,31 @@ Un potente clie### 🔧 Funcionalidades Técnicas
    http://localhost:5173
    ```
 
+## 🌐 Deploy y HTTPS
+
+**¿Problemas con HTTPS en producción?** 
+
+La aplicación incluye detección automática de Mixed Content y sugerencias de proxy para resolver problemas de HTTPS en deploy.
+
+### 📦 Opciones de Deploy
+
+#### 🦕 **Deno Deploy** (Recomendado)
+- ⚡ **Deploy en segundos** con TypeScript nativo
+- 🌍 **CDN global** automático
+- 🆓 **Gratis** para proyectos personales
+- � **HTTPS automático**
+
+�📖 **Guía completa**: [DENO-DEPLOY.md](./DENO-DEPLOY.md)
+
+#### 🌐 **Otras Plataformas**
+📖 **Guía completa**: [DEPLOY.md](./DEPLOY.md)
+
+**Resumen rápido**:
+- ✅ **Detección automática** de problemas HTTPS vs HTTP
+- 🔄 **Proxies CORS integrados** (AllOrigins, CORS Anywhere)
+- ⚙️ **Variables de entorno** configurables
+- 📦 **Compatible** con Netlify, Vercel, GitHub Pages
+
 ## 📖 Uso
 
 ### 🚀 Headers Rápidos - Nueva Característica

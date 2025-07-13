@@ -1,0 +1,10 @@
+{
+  "name": "api-tester",
+  "description": "🚀 Cliente API moderno con Vue 3, Vite y DaisyUI",
+  "version": "1.0.0",
+  "entrypoint": "server.ts",
+  "env": {
+    "VITE_CORS_PROXY_1": "https://api.allorigins.win/get?url=",
+    "VITE_DEFAULT_API_URL": "https://jsonplaceholder.typicode.com/posts/1"
+  }
+}

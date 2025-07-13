@@ -7,7 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:analyze": "vite build --mode analyze",
+    "serve": "vite preview --port 4173 --host",
+    "build:deno": "./build-deno.sh",
+    "deno:dev": "deno run --allow-net --allow-read server.ts",
+    "deno:check": "deno check server.ts"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",

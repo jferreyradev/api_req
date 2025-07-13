@@ -1,0 +1,10 @@
+{
+  "name": "api-tester-joseferreyra",
+  "project": "api-tester",
+  "entrypoint": "server.ts",
+  "env": {
+    "ENVIRONMENT": "production",
+    "VITE_CORS_PROXY_1": "https://api.allorigins.win/get?url=",
+    "VITE_DEFAULT_API_URL": "https://jsonplaceholder.typicode.com/posts/1"
+  }
+}

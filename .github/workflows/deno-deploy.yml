@@ -1,0 +1,53 @@
+name: Deploy to Deno Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy to Deno Deploy
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read   # Needed to clone the repository
+
+    steps:
+      - name: 📥 Clone repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build Vue application
+        run: npm run build
+        env:
+          VITE_CORS_PROXY_1: "https://api.allorigins.win/get?url="
+          VITE_DEFAULT_API_URL: "https://jsonplaceholder.typicode.com/posts/1"
+
+      - name: 🦕 Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: 🧪 Verify Deno server
+        run: deno check server.ts
+
+      - name: 🚀 Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: "api-tester" # 🚨 Cambiar por tu project name en Deno Deploy
+          entrypoint: "server.ts"
+          root: "."
+          env: |
+            VITE_CORS_PROXY_1=https://api.allorigins.win/get?url=
+            VITE_DEFAULT_API_URL=https://jsonplaceholder.typicode.com/posts/1

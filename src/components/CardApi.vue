@@ -1,8 +1,15 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+// Configuración de entorno
+const CORS_PROXIES = {
+  allorigins: import.meta.env.VITE_CORS_PROXY_1 || 'https://api.allorigins.win/get?url=',
+  corsAnywhere: import.meta.env.VITE_CORS_PROXY_2 || 'https://cors-anywhere.herokuapp.com/',
+  localProxy: import.meta.env.VITE_PROXY_URL || 'http://localhost:5173/api-proxy'
+}
+
 // Estado principal
-const url = ref('https://jsonplaceholder.typicode.com/posts/1')
+const url = ref(import.meta.env.VITE_DEFAULT_API_URL || 'https://jsonplaceholder.typicode.com/posts/1')
 const method = ref('GET')
 const response = ref(null)
 const isLoading = ref(false)
@@ -362,6 +369,52 @@ const handleDownloadSelection = (event) => {
   }
 }
 
+// Validación de protocolo y Mixed Content
+const checkMixedContent = () => {
+  const isHTTPS = window.location.protocol === 'https:'
+  const targetIsHTTP = url.value.toLowerCase().startsWith('http:')
+  return isHTTPS && targetIsHTTP
+}
+
+const hasMixedContentIssue = computed(() => checkMixedContent())
+
+// Función para obtener sugerencias de proxy
+const getProxySuggestions = () => {
+  const encodedUrl = encodeURIComponent(url.value)
+  const suggestions = [
+    {
+      name: 'AllOrigins (Recomendado)',
+      url: `${CORS_PROXIES.allorigins}${encodedUrl}`,
+      note: 'Gratuito y confiable. La respuesta estará en .contents'
+    },
+    {
+      name: 'Cambiar a HTTPS',
+      url: url.value.replace(/^http:/, 'https:'),
+      note: 'Si la API soporta HTTPS'
+    }
+  ]
+
+  // Solo mostrar CORS Anywhere en desarrollo
+  if (import.meta.env.DEV) {
+    suggestions.push({
+      name: 'CORS Anywhere (Dev)',
+      url: `${CORS_PROXIES.corsAnywhere}${url.value.replace(/^https?:\/\//, '')}`,
+      note: 'Solo para desarrollo - requiere activación'
+    })
+  }
+
+  // Solo mostrar proxy local en desarrollo
+  if (import.meta.env.DEV && url.value.includes('jsonplaceholder')) {
+    suggestions.push({
+      name: 'Proxy Local (Dev)',
+      url: `${CORS_PROXIES.localProxy}${url.value.replace(/^https?:\/\/[^\/]+/, '')}`,
+      note: 'Usando proxy de Vite'
+    })
+  }
+
+  return suggestions
+}
+
 const makeRequest = async () => {
   if (!url.value) return
   
@@ -410,7 +463,40 @@ const makeRequest = async () => {
     }
     
   } catch (err) {
-    error.value = err.message
+    let errorMessage = err.message
+    
+    // Detectar errores de Mixed Content
+    if (hasMixedContentIssue.value) {
+      errorMessage = `❌ Mixed Content Error: No se puede hacer una petición HTTP desde una página HTTPS.
+      
+🔧 Soluciones posibles:
+1. Usa HTTPS en la URL si está disponible
+2. Usa un proxy CORS (ver sugerencias abajo)
+3. Configura tu API para soportar HTTPS
+
+Error original: ${err.message}`
+    } else if (err.message.includes('CORS')) {
+      errorMessage = `❌ CORS Error: La API no permite peticiones desde este dominio.
+      
+🔧 Soluciones:
+1. Usa un proxy CORS
+2. Configura la API para permitir CORS
+3. Usa una extensión de navegador para desarrollo
+
+Error original: ${err.message}`
+    } else if (err.message.includes('Failed to fetch')) {
+      errorMessage = `❌ Network Error: No se pudo conectar con la API.
+      
+🔧 Verificar:
+1. La URL es correcta
+2. La API está funcionando
+3. No hay problemas de red
+4. Revisar Mixed Content (HTTP vs HTTPS)
+
+Error original: ${err.message}`
+    }
+    
+    error.value = errorMessage
     console.error('Request failed:', err)
   } finally {
     isLoading.value = false
@@ -457,6 +543,31 @@ const makeRequest = async () => {
           >
             {{ isLoading ? '' : 'Enviar' }}
           </button>
+        </div>
+        
+        <!-- Advertencia de Mixed Content -->
+        <div v-if="hasMixedContentIssue" class="alert alert-warning alert-xs mt-1 p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-4 w-4" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.872-.833-2.464 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+          </svg>
+          <div class="flex-1">
+            <h3 class="font-bold text-xs">⚠️ Mixed Content Issue</h3>
+            <div class="text-xs">Esta página usa HTTPS, pero la URL es HTTP. Esto puede causar errores.</div>
+            <div class="mt-1">
+              <span class="font-semibold text-xs">Sugerencias:</span>
+              <div class="space-y-1 mt-1">
+                <div v-for="suggestion in getProxySuggestions()" :key="suggestion.name" class="text-xs">
+                  <button 
+                    @click="url = suggestion.url" 
+                    class="btn btn-xs btn-ghost text-left p-1 h-auto min-h-0"
+                    :title="suggestion.note"
+                  >
+                    {{ suggestion.name }}: <span class="font-mono text-xs break-all">{{ suggestion.url }}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
