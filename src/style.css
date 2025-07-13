@@ -1,3 +1,102 @@
 @import "tailwindcss";
-@plugin "daisyui";
-/* Custom styles if needed */
+
+/* Custom styles for API Tester */
+
+/* Resaltado de búsqueda */
+mark {
+  background-color: #fef08a;
+  color: #000;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+/* Resaltado de la coincidencia actual */
+mark#current-match {
+  background-color: #f87171;
+  color: white;
+  border: 2px solid #dc2626;
+  animation: pulse-highlight 0.5s ease-in-out;
+}
+
+@keyframes pulse-highlight {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Mejoras para el código de respuesta */
+.response-code {
+  line-height: 1.4;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Animación suave para el collapse */
+.collapse-content {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Compactación adicional para elementos pequeños */
+.btn-xs {
+  min-height: 1.5rem;
+  height: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.input-xs {
+  min-height: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.select-xs {
+  min-height: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.select-sm {
+  min-height: 2rem;
+  height: 2rem;
+}
+
+.input-sm {
+  min-height: 2rem;
+  height: 2rem;
+}
+
+.btn-sm {
+  min-height: 2rem;
+  height: 2rem;
+}
+
+/* Estilos especiales para el select de descarga */
+.select-download {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+
+/* Scroll personalizado para el código */
+.response-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.response-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.response-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.response-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -1,60 +1,95 @@
-# 🚀 API Client - Vue 3 + Vite + DaisyUI
+# 🚀 API Tester - Cliente API Moderno
 
-Un cliente API moderno y elegante construido con Vue 3, Vite y DaisyUI. Permite realizar peticiones HTTP de forma visual e intuitiva con capacidades avanzadas de testing y exportación de datos.
+Un potente clie### 🔧 Funcionalidades Técnicas
+- **✅ Validación JSON**: En tiempo real con indicadores visuales
+- **📋 Clipboard API**: Copia con confirmación visual
+- **🔄 Request Building**: Construcción inteligente de peticiones
+- **📊 Response Analytics**: Estadísticas de líneas y tamaño
+- **🎮 Keyboard Shortcuts**: Navegación eficiente con teclas rápidas
+- **💻 Vue 3 Composition API**: Reactivity moderna y optimizada
+- **⚡ Vite**: Build tool ultrarrápido con hot reloadmoderno y elegante construido con Vue 3, Vite y DaisyUI. Permite realizar peticiones HTTP de forma visual e intuitiva con capacidades avanzadas de testing, búsqueda y exportación de datos. 
+
+**Arquitectura simplificada**: Todo integrado en un solo componente robusto para máxima eficiencia y mantenibilidad.
 
 ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
 
-## ✨ Características
+## ✨ Características Principales
 
 ### 🌐 Cliente API Completo
 - **Métodos HTTP**: GET, POST, PUT, DELETE, PATCH
-- **Headers personalizados**: Gestión dinámica de headers con activación/desactivación
-- **Request Body**: Editor JSON con validación en tiempo real
-- **Respuestas detalladas**: Status code, headers de respuesta y datos
+- **URL Parameters**: Gestión dinámica con activación/desactivación individual
+- **🚀 Headers Rápidos**: 
+  - 🔐 **Authorization**: Input directo para Bearer tokens
+  - 🔑 **API Key**: Configuración rápida con nombre personalizable  
+  - ⚡ **Header Personalizado**: Crear cualquier header al instante
+  - 💫 **Sincronización automática** con el sistema de headers principal
+- **Headers Avanzados**: 
+  - ✅ **Compatible con TODOS los métodos** (GET, POST, PUT, DELETE, PATCH)
+  - 🔧 Gestión completa con validación visual
+  - 💡 Ejemplos predefinidos para facilitar el uso
+- **Request Body**: 
+  - 📝 **Modo JSON**: Editor con validación en tiempo real
+  - 🔧 **Modo Parámetros**: Interface visual key-value con preview JSON
+- **Respuestas Detalladas**: Status code, headers y datos formateados
 
-### 🎨 Interfaz Moderna
-- **8 temas de DaisyUI**: Cambio dinámico de temas con persistencia
-- **Diseño responsive**: Funciona en desktop, tablet y móvil
-- **Iconos SVG**: Iconografía moderna y consistente
-- **Feedback visual**: Estados de carga, éxito y error
+### 🔍 Búsqueda Avanzada en Respuestas
+- **Búsqueda en Tiempo Real**: Encuentra términos específicos instantáneamente
+- **Resaltado Visual**: Coincidencias en amarillo, actual en rojo
+- **Navegación Inteligente**: 
+  - Enter: Siguiente coincidencia
+  - Shift+Enter: Anterior coincidencia
+  - ESC: Cerrar búsqueda
+- **Contador Dinámico**: "3 de 15 coincidencias"
+- **Auto-scroll**: Se desplaza automáticamente a la coincidencia
 
-### 📥 Exportación de Datos
-- **Formato JSON**: Respuesta completa con metadatos
-- **Formato TXT**: Solo datos de respuesta
-- **Formato CSV**: Conversión automática para arrays de objetos
-- **Nombres automáticos**: Archivos con timestamp
+### 📥 Sistema de Descarga Avanzado
+- **� JSON Completo**: Respuesta completa con metadatos (URL, método, headers, status)
+- **� Solo Datos**: Únicamente el contenido de la respuesta (.txt)
+- **📊 CSV Inteligente**: Conversión automática para arrays de objetos
+- **� Timestamping**: Archivos con fecha y hora automática
+- **� Auto-reset**: Selector se resetea después de cada descarga
 
-### 🛠️ Arquitectura Moderna
-- **Composables reutilizables**: Lógica separada y modular
-- **TypeScript ready**: Estructura preparada para TypeScript
+### 🎨 Interfaz Moderna y Responsiva
+- **� Logo con Emoji**: Identidad visual moderna con emoji de cohete
+- **📱 Design Responsivo**: Perfecto en desktop, tablet y móvil
+- **🎛️ Configuración Compacta**: Secciones colapsables con espaciado mínimo
+- **⚡ Estados Visuales**: Loading spinners, badges de status, feedback visual
+- **🎯 UX Optimizada**: Tooltips, shortcuts de teclado, feedback inmediato
+
+### �️ Funcionalidades Técnicas
+- **✅ Validación JSON**: En tiempo real con indicadores visuales
+- **📋 Clipboard API**: Copia con confirmación visual
+- **🔄 Request Building**: Construcción inteligente de peticiones
+- **📊 Response Analytics**: Estadísticas de líneas y tamaño
+- **🎮 Keyboard Shortcuts**: Navegación eficiente
 - **Vue 3 Composition API**: Reactivity moderna y optimizada
 - **Vite**: Build tool ultrarrápido
 
 ## 🚀 Inicio Rápido
 
 ### Prerrequisitos
-- **Deno** (versión recomendada: 1.40+)
-- **Node.js** (opcional, para npm packages)
+- **Node.js** (versión recomendada: 16+)
+- **npm** o **yarn**
 
 ### Instalación
 
 1. **Clona el repositorio**
    ```bash
    git clone <url-del-repo>
-   cd front-ndgs
+   cd api_req
    ```
 
 2. **Instala las dependencias**
    ```bash
-   deno install
+   npm install
    ```
 
 3. **Inicia el servidor de desarrollo**
    ```bash
-   deno task dev
+   npm run dev
    ```
 
 4. **Abre en el navegador**
@@ -64,24 +99,56 @@ Un cliente API moderno y elegante construido con Vue 3, Vite y DaisyUI. Permite 
 
 ## 📖 Uso
 
+### 🚀 Headers Rápidos - Nueva Característica
+La función más destacada de este cliente API es el sistema de **Headers Rápidos**, que permite configurar headers comunes de forma instantánea:
+
+1. **Authorization Bearer**: 
+   - Input directo para tokens Bearer
+   - Se añade automáticamente el prefijo "Bearer "
+   - Sincronización inmediata con headers principales
+
+2. **API Key**:
+   - Nombre personalizable del header (ej: X-API-KEY, Api-Key, etc.)
+   - Valor del API key
+   - Ambos campos se sincronizan automáticamente
+
+3. **Header Personalizado**:
+   - Crear cualquier header con nombre y valor custom
+   - Perfect para headers específicos de tu API
+
+**Ventaja**: Todos los headers configurados en "Headers Rápidos" se muestran automáticamente en la sección "Headers Enviados en la Petición" y son editables desde ambos lugares.
+
 ### Realizar una Petición GET
 1. Ingresa la URL de la API
 2. Selecciona el método GET (por defecto)
-3. Agrega headers si es necesario
-4. Haz clic en "Consultar"
+3. **Agrega parámetros de URL si es necesario** (ej: page=1, limit=10)
+4. Agrega headers si es necesario
+5. Haz clic en "Enviar"
 
 ### Realizar una Petición POST/PUT
 1. Selecciona el método POST o PUT
-2. Se activará automáticamente el tab "Body"
-3. Ingresa el JSON en el editor
-4. El sistema validará automáticamente la sintaxis
-5. Haz clic en "Consultar"
+2. Se activará automáticamente el editor de Body
+3. **Configura parámetros de URL** para filtros o paginación
+4. Ingresa el JSON en el editor del body
+5. El sistema validará automáticamente la sintaxis
+6. Haz clic en "Enviar"
 
-### Gestión de Headers
-- ✅ **Activar/Desactivar**: Checkbox para habilitar headers
-- ➕ **Agregar**: Botón para nuevos headers
-- ❌ **Eliminar**: Botón X para quitar headers
-- 🔄 **Content-Type**: Incluido por defecto para POST/PUT
+### Gestión de Parámetros de URL
+- ✅ **Activar/Desactivar**: Checkbox para habilitar parámetros
+- ➕ **Agregar**: Botón para nuevos parámetros
+- ❌ **Eliminar**: Botón X para quitar parámetros
+- 📝 **Ejemplos**: Botón para cargar ejemplos comunes (page, limit, sort)
+- 🗑️ **Limpiar**: Botón para resetear todos los parámetros
+
+### Gestión de Headers con Headers Rápidos
+- **🚀 Authorization**: Input directo para Bearer tokens
+- **🔑 API Key**: Configuración rápida con nombre personalizable  
+- **⚡ Header Personalizado**: Crear cualquier header al instante
+- **💫 Sincronización automática** con el sistema principal
+- **✅ Activar/Desactivar**: Checkbox para habilitar headers
+- **➕ Agregar**: Botón para nuevos headers personalizados
+- **❌ Eliminar**: Botón X para quitar headers
+- **🔄 Content-Type**: Incluido por defecto para POST/PUT
 
 ### Exportar Resultados
 1. Realiza cualquier petición exitosa
@@ -93,46 +160,36 @@ Un cliente API moderno y elegante construido con Vue 3, Vite y DaisyUI. Permite 
 
 ## 🏗️ Arquitectura
 
-### Estructura del Proyecto
+### Estructura Simplificada del Proyecto
 ```
 src/
 ├── components/
-│   └── CardApi.vue          # Componente principal de la UI
-├── composables/
-│   ├── useApiClient.js      # Lógica de peticiones HTTP
-│   ├── useApiForm.js        # Lógica del formulario
-│   └── index.js             # Exportaciones centralizadas
-├── assets/                  # Recursos estáticos
-├── App.vue                  # Componente raíz con temas
-├── main.js                  # Punto de entrada
-└── style.css               # Estilos globales
+│   └── CardApi.vue          # 🎯 Componente único - toda la funcionalidad integrada
+├── assets/
+│   └── logo.svg            # Logo/recursos de la aplicación  
+├── App.vue                  # Componente raíz con layout responsive
+├── main.js                  # Punto de entrada con configuración de Vue
+└── style.css               # Estilos globales de Tailwind
 ```
 
-### Composables
+### Filosofía de Arquitectura
 
-#### `useApiClient.js` 🌐
-Maneja toda la lógica de comunicación HTTP:
-- **Estado reactivo**: `response`, `isLoading`, `error`
-- **Peticiones**: `makeRequest(config)`
-- **Descarga**: `downloadResponse(format)`
-- **Gestión de errores**: Centralizada y consistente
+**Un Solo Componente, Máxima Potencia**: En lugar de múltiples componentes modulares, `CardApi.vue` integra toda la funcionalidad en un diseño cohesivo y optimizado:
 
-#### `useApiForm.js` 📝
-Gestiona el estado y validación del formulario:
-- **Campos**: `url`, `method`, `headers`, `requestBody`
-- **Validación**: JSON en tiempo real
-- **Ejemplos**: Templates predefinidos
-- **Configuración**: `getRequestConfig()`
+- ⚡ **Mejor Rendimiento**: Sin overhead de comunicación entre componentes
+- � **Más Fácil de Mantener**: Una sola fuente de verdad 
+- 🎯 **UX Más Fluida**: Estados compartidos sin complejidad
+- 📦 **Menor Bundle Size**: Sin importaciones ni props innecesarios
+- 🚀 **Desarrollo Más Rápido**: Cambios directos sin refactoring modular
 
-### Tecnologías Utilizadas
+### Tecnologías Integradas
 
 | Tecnología | Versión | Propósito |
 |------------|---------|-----------|
-| **Vue 3** | ^3.4.0 | Framework reactivo |
-| **Vite** | ^6.2.6 | Build tool y dev server |
-| **Tailwind CSS** | ^3.4.0 | Framework CSS utility-first |
-| **DaisyUI** | ^5.0.46 | Componentes para Tailwind |
-| **Deno** | 1.40+ | Runtime y package manager |
+| **Vue 3** | ^3.5.13 | Framework reactivo con Composition API |
+| **Vite** | ^6.2.0 | Build tool ultrarrápido y dev server |
+| **Tailwind CSS** | ^4.1.11 | Framework CSS utility-first |
+| **DaisyUI** | ^5.0.46 | Componentes elegantes para Tailwind |
 
 ## 🎨 Temas Disponibles
 
@@ -159,16 +216,13 @@ El proyecto incluye 8 temas de DaisyUI con cambio dinámico:
 
 ```bash
 # Desarrollo
-deno task dev          # Servidor de desarrollo
+npm run dev           # Servidor de desarrollo con hot reload
 
 # Build
-deno task build        # Construcción para producción
+npm run build         # Construcción optimizada para producción
 
 # Preview
-deno task preview      # Preview de la build
-
-# Lint (si se configura)
-deno task lint         # Verificación de código
+npm run preview       # Preview de la build de producción
 ```
 
 ## 🔧 Configuración
@@ -198,14 +252,16 @@ export default {
 }
 ```
 
-## 📋 Roadmap
+## 📋 Roadmap Futuro
 
-- [ ] 🔒 **Autenticación**: Soporte para tokens y API keys
-- [ ] 📚 **Historial**: Guardar peticiones anteriores
-- [ ] 🧪 **Tests**: Suites de pruebas automatizadas
-- [ ] 📊 **GraphQL**: Soporte para queries GraphQL
-- [ ] 🌍 **Environments**: Gestión de múltiples entornos
-- [ ] 📱 **PWA**: Aplicación web progresiva
+- [ ] 🔒 **Autenticación Avanzada**: OAuth 2.0, JWT y múltiples tipos de auth
+- [ ] 📚 **Historial de Peticiones**: Guardar y reutilizar requests anteriores
+- [ ] 🧪 **Testing Automatizado**: Aserciones y validaciones automáticas
+- [ ] 📊 **GraphQL**: Soporte completo para queries y mutations
+- [ ] 🌍 **Environments**: Gestión de múltiples entornos (dev, staging, prod)
+- [ ] 📱 **PWA**: Aplicación web progresiva offline-first
+- [ ] 🔗 **Collections**: Agrupación y organización de endpoints
+- [ ] 📈 **Analytics**: Métricas de rendimiento de APIs
 
 ## 🐛 Reportar Issues
 
@@ -221,14 +277,14 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 👥 Autores
 
-- **Tu Nombre** - *Desarrollo inicial* - [@tuusuario](https://github.com/tuusuario)
+- **José Ferreyra** - *Desarrollo y arquitectura* - [@joseferreyra](https://github.com/joseferreyra)
 
 ## 🙏 Agradecimientos
 
-- **Vue.js Team** - Por el excelente framework
-- **Vite Team** - Por la velocidad de desarrollo
-- **DaisyUI** - Por los componentes hermosos
-- **Tailwind CSS** - Por el sistema de diseño
+- **Vue.js Team** - Por el excelente framework reactivo
+- **Vite Team** - Por la velocidad de desarrollo incomparable
+- **DaisyUI** - Por los componentes hermosos y accesibles
+- **Tailwind CSS** - Por el sistema de diseño utility-first
 
 ---
 

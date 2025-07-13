@@ -1,7 +1,8 @@
 {
-  "name": "front-ndgs",
+  "name": "api-tester",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "🚀 Cliente API moderno con Vue 3, Vite y DaisyUI",
   "type": "module",
   "scripts": {
     "dev": "vite",
